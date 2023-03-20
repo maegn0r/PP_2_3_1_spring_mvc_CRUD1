@@ -4,12 +4,12 @@ public class User {
 
 private String name;
 private String surname;
-private String email;
+private Byte age;
 
-    public User(String name, String surname, String email) {
+    public User(String name, String surname, Byte age) {
         this.name = name;
         this.surname = surname;
-        this.email = email;
+        this.age = age;
     }
 
     public String getName() {
@@ -28,11 +28,11 @@ private String email;
         this.surname = surname;
     }
 
-    public String getEmail() {
-        return email;
+    public Byte getAge() {
+        return age;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAge(Byte age) {
+        this.age = age;
     }
 }

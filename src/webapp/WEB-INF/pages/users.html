@@ -11,14 +11,14 @@
         <tr>
             <th scope="col">Имя</th>
             <th scope="col">Фамилия</th>
-            <th scope="col">Электронная почта</th>
+            <th scope="col">Возраст</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="user: ${users}">
             <td th:text="${user.name}"></td>
             <td th:text="${user.surname}"></td>
-            <td th:text="${user.email}"></td>
+            <td th:text="${user.age}"></td>
         </tr>
         </tbody>
     </table>

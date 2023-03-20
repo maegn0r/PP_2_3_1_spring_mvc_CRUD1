@@ -14,11 +14,11 @@ public class UserServiceImp implements UserService {
     private final List<User> users;
 
     public void fillListOfUsers() {
-        users.add(new User("Василий", "Иванович", "vivanovich@yandex.ru"));
-        users.add(new User("Сергей", "Петрович", "spetrovich@ya.ru"));
-        users.add(new User("James", "Bond", "jbond007@gmail.com"));
-        users.add(new User("Анна", "Иоанновна", "aioannovna@rambler.ru"));
-        users.add(new User("Виктория", "Сергеевна", "vsergeevna@ya.ru"));
+        users.add(new User("Василий", "Иванович", (byte) 55));
+        users.add(new User("Сергей", "Петрович", (byte) 35));
+        users.add(new User("James", "Bond", (byte) 67));
+        users.add(new User("Анна", "Иоанновна", (byte) 34));
+        users.add(new User("Виктория", "Сергеевна", (byte) 52));
     }
 
 
