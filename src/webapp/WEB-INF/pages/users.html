@@ -6,22 +6,34 @@
 </head>
 <body>
 <div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Имя</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Возраст</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="user: ${users}">
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.surname}"></td>
-            <td th:text="${user.age}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <a th:href="@{/insert}">Добавить пользователя</a>
+</div>
+<div class="container">
+    <span th:if="${users.size() == 0}">Пользователей нет</span>
+    <div th:unless="${users.size() == 0}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Возраст</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.name}" th:align="center"></td>
+                <td th:text="${user.surname}" th:align="center"></td>
+                <td th:text="${user.age}" th:align="center"></td>
+                <td>
+                    <a type="button" class="btn btn-warning" th:href="@{/update(id=${user.id})}">Редактировать</a>
+                </td>
+                <td>
+                    <a type="button" class="btn btn-danger" th:href="@{/delete(id=${user.id})}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
