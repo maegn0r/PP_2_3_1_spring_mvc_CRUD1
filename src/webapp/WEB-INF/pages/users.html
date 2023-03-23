@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Список пользователей</title>
 </head>
 <body>
 <div>
-    <a th:href="@{/insert}">Добавить пользователя</a>
+    <a th:href="@{/add}">
+        <button type="button"> Добавить пользователя </button>
+    </a>
 </div>
 <div class="container">
     <span th:if="${users.size() == 0}">Пользователей нет</span>
@@ -25,10 +27,17 @@
                 <td th:text="${user.surname}" th:align="center"></td>
                 <td th:text="${user.age}" th:align="center"></td>
                 <td>
-                    <a type="button" class="btn btn-warning" th:href="@{/update(id=${user.id})}">Редактировать</a>
+                    <a th:href="@{/update/(id=${user.id})}">
+                        <button type="button"> Редактировать </button>
+                    </a>
                 </td>
                 <td>
-                    <a type="button" class="btn btn-danger" th:href="@{/delete(id=${user.id})}">Удалить</a>
+<!--                    <a th:href="@{/delete(id=${user.id})}">-->
+<!--                        <button type="button"> Удалить</button>-->
+<!--                    </a>-->
+                    <form action="#" th:action="@{/delete(id=${user.id})}" th:method="delete" >
+                        <button type="submit" class="btn"> Удалить </button>
+                    </form>
                 </td>
             </tr>
             </tbody>

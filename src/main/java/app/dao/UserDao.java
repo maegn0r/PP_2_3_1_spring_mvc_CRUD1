@@ -9,4 +9,9 @@ public interface UserDao {
 
     List<User> listUsers();
 
+    User findById(Long id);
+
+    void merge(User user);
+
+    void remove(User user);
 }

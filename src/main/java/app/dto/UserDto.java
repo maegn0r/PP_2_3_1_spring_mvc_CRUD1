@@ -15,6 +15,9 @@ public class UserDto {
         this.age = age;
     }
 
+    public UserDto() {
+    }
+
     public UserDto(User user) {
         this.id = user.getId();
         this.name = user.getName();

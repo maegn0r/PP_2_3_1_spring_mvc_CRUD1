@@ -12,15 +12,6 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImp implements UserService {
 
-
-//    public void fillDatabase() {
-//        add(new UserDto("User1", "Lastname1", (byte) 22));
-//        add(new UserDto("User2", "Lastname2", (byte) 33));
-//        add(new UserDto("User3", "Lastname3", (byte) 44));
-//        add(new UserDto("User4", "Lastname4", (byte) 55));
-//    }
-
-
     @Autowired
     private UserDao userDao;
 
@@ -36,9 +27,24 @@ public class UserServiceImp implements UserService {
         return userDao.listUsers().stream().map(UserDto::new).collect(Collectors.toList());
     }
 
-//    public UserServiceImp(){
-//        fillDatabase();
-//    }
+    @Override
+    public UserDto findById(Long id) {
+        return new UserDto(userDao.findById(id));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userDao.remove(userDao.findById(id));
+    }
+
+    @Override
+    public void merge(UserDto userDto) {
+        User user = userDao.findById(userDto.getId());
+        user.setName(userDto.getName());
+        user.setSurname(userDto.getSurname());
+        user.setAge(userDto.getAge());
+        userDao.merge(user);
+    }
 
 
 }
