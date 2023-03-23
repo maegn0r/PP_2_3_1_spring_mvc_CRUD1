@@ -16,18 +16,10 @@
         <br/>
         <label for="Возраст">Введите возраст: </label>
         <input type="text" th:field="*{age}" id="Возраст"/>
+        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Incorrect age</p>
         <hr/>
         <input type="submit" value="Сохранить"/>
     </form>
-<!--    <form action="#" th:action="@{/add}" th:object="${user}" method="post">-->
-<!--        <label for="name">Name</label>-->
-<!--        <input type="text" th:field="*{name}" id="name" placeholder="Name">-->
-<!--        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
-<!--        <label for="email">Email</label>-->
-<!--        <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
-<!--        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>-->
-<!--        <input type="submit" value="Add User">-->
-<!--    </form>-->
 </div>
 
 </body>
