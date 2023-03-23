@@ -16,7 +16,6 @@
         <br/>
         <label for="Возраст">Введите возраст: </label>
         <input type="text" th:field="*{age}" id="Возраст"/>
-        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Incorrect age</p>
         <hr/>
         <input type="submit" value="Сохранить"/>
     </form>
