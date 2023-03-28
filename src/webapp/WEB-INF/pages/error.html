@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ошибка</title>
+</head>
+<h1>Произошла ошибка</h1>
+
+<body>
+<p th:if="${url}">
+  <b>Страница, на которой произошла ошибка</b> <span th:text="${url}">Page URL</span>
+</p>
+
+<p th:if="${timestamp}" id='created'>
+  <b>Время:</b> <span th:text="${timestamp}">Timestamp</span>
+</p>
+
+<p th:if="${status}">
+  <b>Код ошибки:</b> <span th:text="${status}">status-code</span> <span
+        th:if="${error}" th:text="'('+${error}+')'">error ...</span>
+</p>
+
+<a th:href="@{/}">
+  <button type="button"> Вернуться на главную страницу </button>
+</a>
+
+<!--
+  // Скрытые детали ошибки - можно просмотреть в режиме разработчика в браузере.
+  -->
+<div th:utext="'&lt;!--'" th:remove="tag"></div>
+<div th:utext="'Failed URL: ' +  ${url}" th:remove="tag">${url}</div>
+<div th:utext="'Exception: ' + ${exception.message}" th:remove="tag">${exception.message}</div>
+<ul th:remove="tag">
+  <li th:each="ste : ${exception.stackTrace}" th:remove="tag"><span
+          th:utext="${ste}" th:remove="tag">${ste}</span></li>
+</ul>
+<div th:utext="'--&gt;'" th:remove="tag"></div>
+
+
+</body>
+</html>
